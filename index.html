@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Title</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <form>
+            <div class="form-group">
+                <div class="col-md-1 col-md-offset-4">
+                    <label for="username">用户名：</label>
+                </div>
+                <div class="col-md-3">
+                    <input type="text" class="form-control input-lg" id="username" placeholder="name">
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="row">
+        <form>
+            <div class="form-group has-warning">
+                <div class="col-md-1 col-md-offset-4">
+                    <label for="pwd">密码：</label>
+                </div>
+                <div class="col-md-3">
+                    <input type="text" class="form-control" id="pwd" placeholder="请输入密码">
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="row">
+        <form>
+            <div class="form-group ">
+                <div class="col-md-1 col-md-offset-4">
+                    <label for="id">id：</label>
+                </div>
+                <div class="col-md-3">
+                    <input type="text" class="form-control input-lg" id="id" placeholder="11" disabled>
+                </div>
+            </div>
+        </form>
+    </div>
+    <!--字体图标-->
+        <div class="row">
+            <!--<div class="col-md-3">-->
+                <!--<i class="glyphicon glyphicon-star"></i>-->
+                <!--<i class="glyphicon glyphicon-star"></i>-->
+                <!--<i class="glyphicon glyphicon-star"></i>-->
+                <!--<i class="glyphicon glyphicon-star"></i>-->
+                <!--<i class="glyphicon glyphicon-star glyphicon-star-empty"></i>-->
+            <!--</div>-->
+            <div class="col-md-10 col-md-offset-1">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>电影名字</th>
+                        <th>电影描述</th>
+                        <th>电影评分</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+</div>
+</body>
+<script src="jquery-3.3.1.min.js"></script>
+<script src="bootstrap/js/bootstrap.min.js"></script>
+<script>
+    var arr= [
+        {id:1,des:"电影1描述",name:"电影1",rating:2.1},
+        {id:2,des:"电影2描述",name:"电影2",rating:3.1},
+        {id:3,des:"电影3描述",name:"电影3",rating:1.1},
+        {id:4,des:"电影4描述",name:"电影4",rating:4.1}
+    ]
+
+
+    for( var i=0; i<arr.length; i++){
+        var _tr = $('<tr><td>'+arr[i].name+'</td><td>'+arr[i].des+'</td><td class="star"></td></tr>')
+        $("tbody").append(_tr);
+            var str = "";
+        for ( var j = 0; j<5; j++){
+            if(arr[i].rating>j){
+                str+='<i class="glyphicon glyphicon-star"></i>'
+            }else {
+                str+='<i class="glyphicon glyphicon-star-empty"></i>'
+            }
+       }
+       console.log(str)
+        $(".star").eq(i).html(str);
+    }
+</script>
+</html>
